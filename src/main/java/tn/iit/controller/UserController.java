@@ -51,12 +51,14 @@ public class UserController {
 
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String add(@ModelAttribute User user) {
+		user.setRole("ROLE_ADMIN");
 		userDao.add(user);
 		return "redirect:/user/list";
 	}
 
 	@RequestMapping(value = "/update/updateUser", method = RequestMethod.POST)
 	public String update(@ModelAttribute User user) {
+		user.setRole("ROLE_ADMIN");
 		userDao.update(user);
 
 		return "redirect:/user/list";
