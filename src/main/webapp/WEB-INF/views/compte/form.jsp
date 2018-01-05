@@ -26,7 +26,16 @@
 				<td>
 					<select name="idUser">					
 					 <c:forEach var="u" items="${users}">
-							<option value="${u.id}">${u.firstName} ${u.lastName}</option>
+					 
+						 <c:choose>
+						      <c:when test="${compte.user.id eq u.id}">
+								<option value="${u.id}" selected>${u.firstName} ${u.lastName}</option>
+						      </c:when>
+						      <c:otherwise>
+								<option value="${u.id}" >${u.firstName} ${u.lastName}</option>
+						      </c:otherwise>
+   						 </c:choose>
+       
 				      </c:forEach>
 			      	</select>
        
