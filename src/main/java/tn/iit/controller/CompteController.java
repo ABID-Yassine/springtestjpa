@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +63,7 @@ public class CompteController {
 	}
 
 	@RequestMapping(value = "/update/updateCompte", method = RequestMethod.POST)
-	public String update(@ModelAttribute Compte compte,@RequestBody Long idUser) {
+	public String update(@ModelAttribute Compte compte,@RequestParam Long idUser) {
 		compte.setUser(userDao.getById(idUser));
 		compteDao.saveAndFlush(compte);
 		return "redirect:/compte/list";
