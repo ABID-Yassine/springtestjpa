@@ -8,6 +8,8 @@
 <title>Liste des comptes</title>
 </head>
 <body>
+
+ <a href="${contextPath}/user/list">users list</a>
 	<table>
 		<tr>
 			<th>id</th>
